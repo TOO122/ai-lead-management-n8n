@@ -71,7 +71,7 @@ I designed the scoring system based on how sales teams actually prioritize leads
 ```text
 ai-lead-management-n8n/
 ├── screenshots/
-├── ai-lead-management.json
+├── ai-lead-management-workflow.json
 └── README.md
 ```
 
