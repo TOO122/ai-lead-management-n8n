@@ -1,0 +1,948 @@
+{
+  "name": "AI-Powered Lead Management and Sales Workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "formTitle": "Get in Touch",
+        "formDescription": "Tell us about your needs and we'll get back to you shortly",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Full Name",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Email",
+              "fieldType": "email",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Company Name",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Job Title",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Phone Number"
+            },
+            {
+              "fieldLabel": "Company Size",
+              "fieldType": "dropdown",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "1-10"
+                  },
+                  {
+                    "option": "11-50"
+                  },
+                  {
+                    "option": "51-200"
+                  },
+                  {
+                    "option": "201-500"
+                  },
+                  {
+                    "option": "500+"
+                  }
+                ]
+              },
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Budget",
+              "fieldType": "dropdown",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "Under $5k"
+                  },
+                  {
+                    "option": "$5k-$20k"
+                  },
+                  {
+                    "option": "$20k-$50k"
+                  },
+                  {
+                    "option": "$50k"
+                  }
+                ]
+              },
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Inquiry Message",
+              "fieldType": "textarea",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Lead Source",
+              "fieldType": "dropdown",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "Website Form"
+                  },
+                  {
+                    "option": "Referral"
+                  },
+                  {
+                    "option": "LinkedIn"
+                  },
+                  {
+                    "option": "Other"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.5,
+      "position": [
+        0,
+        0
+      ],
+      "id": "6c15f432-4837-49e8-95bc-79f07a38a67e",
+      "name": "On form submission",
+      "webhookId": "5fda842a-cf42-4aa7-940a-2307a31392ed"
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appwa7E8jP4cIISzb",
+          "mode": "list",
+          "cachedResultName": "AI Lead Management System",
+          "cachedResultUrl": "https://airtable.com/appwa7E8jP4cIISzb"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblqG2KQOhxeyyPdB",
+          "mode": "list",
+          "cachedResultName": "Leads",
+          "cachedResultUrl": "https://airtable.com/appwa7E8jP4cIISzb/tblqG2KQOhxeyyPdB"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Full Name": "={{ $json['Full Name'] }}",
+            "Company Name": "={{ $json['Company Name'] }}",
+            "Email": "={{ $json.Email }}",
+            "Job Title": "={{ $json['Job Title'] }}",
+            "Phone Number": "={{ $json['Phone Number'] }}",
+            "Company Size": "={{ $json['Company Size'] }}",
+            "Budget": "={{ $json.Budget }}",
+            "Inquiry Message": "={{ $json['Inquiry Message'] }}",
+            "Lead Source": "={{ $json['Lead Source'] }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Full Name",
+              "displayName": "Full Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Company Name",
+              "displayName": "Company Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Job Title",
+              "displayName": "Job Title",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Phone Number",
+              "displayName": "Phone Number",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Company Size",
+              "displayName": "Company Size",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "1-10",
+                  "value": "1-10"
+                },
+                {
+                  "name": "11-50",
+                  "value": "11-50"
+                },
+                {
+                  "name": "51-200",
+                  "value": "51-200"
+                },
+                {
+                  "name": "201-500",
+                  "value": "201-500"
+                },
+                {
+                  "name": "500+",
+                  "value": "500+"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Budget",
+              "displayName": "Budget",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Under $5k",
+                  "value": "Under $5k"
+                },
+                {
+                  "name": "$5k-$20k",
+                  "value": "$5k-$20k"
+                },
+                {
+                  "name": "$20k-$50k",
+                  "value": "$20k-$50k"
+                },
+                {
+                  "name": "$50k+",
+                  "value": "$50k+"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Inquiry Message",
+              "displayName": "Inquiry Message",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Lead Source",
+              "displayName": "Lead Source",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Website Form",
+                  "value": "Website Form"
+                },
+                {
+                  "name": "Referral",
+                  "value": "Referral"
+                },
+                {
+                  "name": "LinkedIn",
+                  "value": "LinkedIn"
+                },
+                {
+                  "name": "Other",
+                  "value": "Other"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Lead Score",
+              "displayName": "Lead Score",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Lead Category",
+              "displayName": "Lead Category",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Hot",
+                  "value": "Hot"
+                },
+                {
+                  "name": "Warm",
+                  "value": "Warm"
+                },
+                {
+                  "name": "Cold",
+                  "value": "Cold"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "New",
+                  "value": "New"
+                },
+                {
+                  "name": "Contacted",
+                  "value": "Contacted"
+                },
+                {
+                  "name": "Qualified",
+                  "value": "Qualified"
+                },
+                {
+                  "name": "Won",
+                  "value": "Won"
+                },
+                {
+                  "name": "Lost",
+                  "value": "Lost"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Date Created",
+              "displayName": "Date Created",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        208,
+        0
+      ],
+      "id": "61d4b69c-4b4c-4458-9640-5163fc2ff01a",
+      "name": "Create a record",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "sCS0ydgBZsy5PCET",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const data = $input.first().json.fields;\n\nlet score = 0;\n\n// Budget scoring (max 50)\nconst budgetScores = {\n  \"Under $5k\": 10,\n  \"$5k-$20k\": 25,\n  \"$20k-$50k\": 40,\n  \"$50k+\": 50\n};\nscore += budgetScores[data[\"Budget\"]] || 0;\n\n// Company Size scoring (max 30)\nconst sizeScores = {\n  \"1-10\": 5,\n  \"11-50\": 15,\n  \"51-200\": 22,\n  \"201-500\": 27,\n  \"500+\": 30\n};\nscore += sizeScores[data[\"Company Size\"]] || 0;\n\n// Job Title scoring (max 20)\nconst jobTitle = (data[\"Job Title\"] || \"\").toLowerCase();\nif (jobTitle.includes(\"vp\") || jobTitle.includes(\"chief\") || jobTitle.includes(\"c-level\")) {\n  score += 20;\n} else if (jobTitle.includes(\"director\") || jobTitle.includes(\"head of\")) {\n  score += 14;\n} else if (jobTitle.includes(\"manager\")) {\n  score += 8;\n} else {\n  score += 3;\n}\n\n// Determine category\nlet category = \"Cold\";\nif (score >= 70) category = \"Hot\";\nelse if (score >= 40) category = \"Warm\";\n\nreturn {\n  recordId: $input.first().json.id,\n  leadScore: score,\n  leadCategory: category\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        416,
+        0
+      ],
+      "id": "c8b8413a-292a-47b1-9d77-057d25e88884",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appwa7E8jP4cIISzb",
+          "mode": "list",
+          "cachedResultName": "AI Lead Management System",
+          "cachedResultUrl": "https://airtable.com/appwa7E8jP4cIISzb"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblqG2KQOhxeyyPdB",
+          "mode": "list",
+          "cachedResultName": "Leads",
+          "cachedResultUrl": "https://airtable.com/appwa7E8jP4cIISzb/tblqG2KQOhxeyyPdB"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('Create a record').item.json.id }}",
+            "Lead Score": "={{ $json.leadScore }}",
+            "Lead Category": "={{ $json.leadCategory }}",
+            "Status": "New"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Full Name",
+              "displayName": "Full Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Company Name",
+              "displayName": "Company Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Job Title",
+              "displayName": "Job Title",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Phone Number",
+              "displayName": "Phone Number",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Company Size",
+              "displayName": "Company Size",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "1-10",
+                  "value": "1-10"
+                },
+                {
+                  "name": "11-50",
+                  "value": "11-50"
+                },
+                {
+                  "name": "51-200",
+                  "value": "51-200"
+                },
+                {
+                  "name": "201-500",
+                  "value": "201-500"
+                },
+                {
+                  "name": "500+",
+                  "value": "500+"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Budget",
+              "displayName": "Budget",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Under $5k",
+                  "value": "Under $5k"
+                },
+                {
+                  "name": "$5k-$20k",
+                  "value": "$5k-$20k"
+                },
+                {
+                  "name": "$20k-$50k",
+                  "value": "$20k-$50k"
+                },
+                {
+                  "name": "$50k+",
+                  "value": "$50k+"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Inquiry Message",
+              "displayName": "Inquiry Message",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Lead Source",
+              "displayName": "Lead Source",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Website Form",
+                  "value": "Website Form"
+                },
+                {
+                  "name": "Referral",
+                  "value": "Referral"
+                },
+                {
+                  "name": "LinkedIn",
+                  "value": "LinkedIn"
+                },
+                {
+                  "name": "Other",
+                  "value": "Other"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Lead Score",
+              "displayName": "Lead Score",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Lead Category",
+              "displayName": "Lead Category",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Hot",
+                  "value": "Hot"
+                },
+                {
+                  "name": "Warm",
+                  "value": "Warm"
+                },
+                {
+                  "name": "Cold",
+                  "value": "Cold"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "New",
+                  "value": "New"
+                },
+                {
+                  "name": "Contacted",
+                  "value": "Contacted"
+                },
+                {
+                  "name": "Qualified",
+                  "value": "Qualified"
+                },
+                {
+                  "name": "Won",
+                  "value": "Won"
+                },
+                {
+                  "name": "Lost",
+                  "value": "Lost"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Date Created",
+              "displayName": "Date Created",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        624,
+        0
+      ],
+      "id": "1e324ac7-d209-4fcd-a3f7-c580ed248916",
+      "name": "Update record",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "sCS0ydgBZsy5PCET",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.groq.com/openai/v1/chat/completions",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {}
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"llama-3.3-70b-versatile\",\n  \"messages\": [\n    {\n      \"role\": \"system\",\n      \"content\": \"You are a professional sales development rep writing personalized follow-up emails to inbound leads. Keep emails concise (under 150 words), warm, and tailored to the lead's stated needs. Do not use generic templates.\"\n    },\n    {\n      \"role\": \"user\",\n      \"content\": \"Write a follow-up email for this lead:\\nName: {{ $json.fields['Full Name'] }}\\nCompany: {{ $json.fields['Company Name'] }}\\nJob Title: {{ $json.fields['Job Title'] }}\\nLead Category: {{ $json.fields['Lead Category'] }}\\nInquiry: {{ $json.fields['Inquiry Message'] }}\\n\\nIf the lead is Hot, convey urgency and offer a call this week. If Warm, be helpful and informative. If Cold, be low-pressure and educational. Sign off as 'The Sales Team'.\"\n    }\n  ]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        832,
+        0
+      ],
+      "id": "a5d6ec63-d5b1-4630-8c07-5fd809626f5a",
+      "name": "HTTP Request",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "5RLcQLbbvzFwcCWs",
+          "name": "Header Auth account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const fullText = $input.first().json.choices[0].message.content;\n\n// Split out the subject line\nconst lines = fullText.split('\\n');\nlet subject = \"Following up on your inquiry\";\nlet bodyLines = lines;\n\nif (lines[0].toLowerCase().startsWith('subject:')) {\n  subject = lines[0].replace(/subject:/i, '').trim();\n  bodyLines = lines.slice(1);\n}\n\nconst body = bodyLines.join('\\n').trim();\n\nreturn {\n  recordId: $('Code in JavaScript').first().json.recordId,\n  email: $('Update record').first().json.fields.Email,\n  fullName: $('Update record').first().json.fields['Full Name'],\n  leadCategory: $('Update record').first().json.fields['Lead Category'],\n  emailSubject: subject,\n  emailBody: body\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1040,
+        0
+      ],
+      "id": "8b0bad2f-a88f-44f6-81c1-ac049b1b9faa",
+      "name": "Code in JavaScript1"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.email }}",
+        "subject": "={{ $json.emailSubject }}",
+        "emailType": "text",
+        "message": "={{ $json.emailBody }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        1248,
+        0
+      ],
+      "id": "89c5308b-8b6c-43ec-8890-7f4713ed53b7",
+      "name": "Send a message",
+      "webhookId": "93d64d3f-6157-43f9-bcca-b0575cc81f72",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "Jnfd60eLs0K6cJe0",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "ee0c4aa8-6eab-4051-911f-c39954855c7c",
+              "leftValue": "={{ $('Code in JavaScript1').item.json.leadCategory }}",
+              "rightValue": "Hot",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1456,
+        0
+      ],
+      "id": "8e75db62-50e4-41a0-b011-8b90ed560772",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C0B9WJBTJ4F",
+          "mode": "id"
+        },
+        "text": "=🔥 New Hot Lead: {{ $('Code in JavaScript1').item.json.fullName }} from {{ $('Code in JavaScript1').item.json.email }} just submitted a Hot lead (Score: {{ $('Code in JavaScript').item.json.leadScore }}). Check Airtable for details.",
+        "otherOptions": {}
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.4,
+      "position": [
+        1664,
+        -96
+      ],
+      "id": "9b67723e-0d39-4786-bc4a-19eb2738da2b",
+      "name": "Send a message1",
+      "webhookId": "5d7a501f-0f2a-486e-a7bb-bcb2c5d23a11",
+      "credentials": {
+        "slackApi": {
+          "id": "e7JOIcjsx2k8dN8o",
+          "name": "Slack account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "Create a record",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create a record": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Update record",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update record": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript1": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send a message": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Send a message1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "86285fc8-8f06-4081-9985-c8404f35a283",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "7b42e9dbd1ccb0c45d17059f67d457973d3cccc0facc973872992c3925cdc4ad"
+  },
+  "id": "ltkImhSfPIDVRExS",
+  "tags": []
+}
